@@ -1,5 +1,9 @@
 # firebaseのAPI keyの保管
-js/firebaseApikey.js
+#for authentication
+js/authFirebaseApikey.js
+
+#for uploading edited recipe
+js/testFirebaseApikey.js
 
 #その他
 memo.txt

@@ -1,6 +1,6 @@
 // firebaseApikey.jsからexportされているオブジェクトを
 // main.jsでfirebaseConfigという変数名で取り扱うよ、という記述。
-import firebaseConfig from "./firebaseApikey.js";
+import firebaseConfig from "./authFirebaseApikey.js";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
@@ -21,7 +21,7 @@ const app = initializeApp(firebaseConfig);
         // google認証完了後の処理
         signInWithPopup(auth, provider).then((result) => {
             // login後のページ遷移
-            location.href = "memo_app.html"; //遷移先
+            location.href = "myRecipeLab.html"; //遷移先
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
