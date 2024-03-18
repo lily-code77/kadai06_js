@@ -1,7 +1,7 @@
 // firebaseApikey.jsからexportされているオブジェクトを
 // main.jsでfirebaseConfigという変数名で取り扱うよ、という記述。
 // firebase名　"test"
-import firebaseConfig from "./testFirebaseApikey.js";
+import firebaseConfig from "./authFirebaseApikey.js";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
@@ -31,6 +31,7 @@ $("#save").on("click", function() {
     set(newPostRef, fixedRecipe);
     $("#recipeName").val("");
     $(".textedImg").val("");
+    $(".preview").html("");
 })
 
 // firebaseに保存したレシピをマイレシピ集として画面に表示する

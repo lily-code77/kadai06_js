@@ -66,7 +66,8 @@
 
         // firebaseApikey.jsからexportされているオブジェクトを
         // main.jsでfirebaseConfigという変数名で取り扱うよ、という記述。
-        import firebaseConfig from "./js/testFirebaseApikey.js";
+        import firebaseConfig from "./js/authFirebaseApikey.js";//こっちを消すと名前や画像が消える
+        // import firebaseConfig from "./js/testFirebaseApikey.js";//こっちを消すとsaveしてもマイレシピ集にレシピが載らない。両方書くとfirebaseConfig変数をダブルで宣言してしまうことになる。
 
         const app = initializeApp(firebaseConfig);
 
@@ -80,6 +81,7 @@
 
         // loginしていれば処理します
         onAuthStateChanged(auth, (user) => {
+            console.log({user});
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
