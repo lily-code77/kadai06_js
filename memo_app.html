@@ -4,34 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recipe Lab | 食べたい料理に出会える場所</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- tesseract.js v5 -->
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
 </head>
 
 <body>
-    <button id="out">ログアウト</button>
-    <h1 id="status">Login...</h1>
-
+    <section>
+        <button id="out">ログアウト</button>
+        <h1 id="status">Login...</h1>
+    </section>
+    
     <!-- コンテンツ表示画面 -->
-    <div>
-        <div>
-            名前：<span id="uname"></span><br>
-            <img src="" id="prof">
-        </div>
-        <div>
-            <select id="title">
-                <option value="memo1">memo1</option>
-                <option value="memo2">memo2</option>
-                <option value="memo3">memo3</option>
-            </select>
-        </div>
-        <div>
-            <textarea id="text" cols="30" rows="10"></textarea>
-            <button id="send">送信</button>
-        </div>
-    </div>
+    <section>
+        名前：<span id="uname"></span><br>
+        <img src="" id="prof">
+    </section>
 
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <section>
+        <h1>マイレシピ　ラボ</h1>
+        
+        <!-- imgを選択し、画面に表示させる -->
+        <div>
+            <!-- multipleを入れることによって複数のファイル選択ができる -->
+            <h3>画像は1つずつ選択してください（.jpegか.png）</h3>
+            <input id="input" type="file" />
+            <div class="preview"></div>
+        </div>
+        
+        <!-- PDFに変換 -->
+        <div>
+            <button id="convert">convert</button><br>
+            <!-- PDF変換後の結果を表示 -->
+            <div class="inputRecipeName">料理名: <input type="text" id="recipeName"></div>
+            <textarea class="textedImg" cols="30" rows="10"></textarea>
+        </div>
+        
+        <!-- Firebaseに保存し、保存されたレシピをどんどんマイレシピ集の一レシピとして画面に表示させていく -->
+        <div>
+            <button id="save">save</button>
+            <h2>マイレシピ集</h2>
+            <div class="myRecipe">
+                <ul class="item"></ul>
+            </div>
+        </div>
+    </section>
 
     <!-- firebase -->
     <script type="module">
@@ -76,31 +97,10 @@
                     });
                     $("#status").fadeOut(500);
                 }
-
-                // データ登録（Click)
-                $("#send").on("click", function () {
-                    const msg = {
-                        title: $("#title").val(),
-                        text: $("#text").val()
-                    }
-                    const dbRef = ref(db, "users/" + uid + "/memo/" + $("#title").val()); //RealtimeDB内の"chat"を使う
-                    set(dbRef, msg); //DBに値をセットする
-                });
-
-                //最初にデータ取得&onSnapshotでリアルタイムにデータを取得
-                $("#title").on("change", function () {
-                    const dbRef = ref(db, "users/" + uid + "/memo" + $(this).val()); //RealtimeDB内の"chat"を使う
-                    onValue(dbRef, function (data) {
-                        console.log(data);
-                        const msg = data.val(); //オブジェクトデータを取得し、変数msgに代入
-                        // const key = data.key; //データのユニークキー（削除や更新に使用可能）
-                        $("#text").val(msg.text);
-                    });
-                });
-            }
             else {
                 _redirect(); // User is signed out
             }
+        }
         });
 
         // logout処理
@@ -122,7 +122,10 @@
 
     </script>
 
-
+    <script src="./js/script.js"></script>
+    <script src="./js/file.js"></script>
+    <script src="./js/pdf.js"></script>
+    <script type="module" src="./js/save.js"></script>
 </body>
 
 </html>
