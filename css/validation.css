@@ -71,8 +71,8 @@ input:focus {
     gap: 15px;
 }
 
-.socialBtn-1,
-.socialBtn-2 {
+.socialBtn1,
+.socialBtn2 {
     padding: 10px 5px;
     width: 100%;
     display: flex;
@@ -85,7 +85,7 @@ input:focus {
     cursor: pointer;
 }
 
-.socialBtn-2 {
+.socialBtn2 {
     background-color: #4f70b5;
     color: white;
 }
