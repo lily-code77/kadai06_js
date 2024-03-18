@@ -1,0 +1,59 @@
+/* 余力が出たら、img-containerを作成した方が汎用性が効く */
+
+/* .usersVoice {
+    width: 80vw;
+    max-width: 620px;
+} */
+#showUser {
+    display: flex;
+}
+
+.voice {
+    background: #fff;
+    /* padding: 1.5rem 2rem; */
+    border-radius: 0.25rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s linear;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* .voice:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+} */
+
+#userName {
+    font-size: 20px;
+}
+
+#voiceTitle {
+    font-size: 40px;
+}
+
+#voiceDetail {
+    font-size: 25px;
+    margin-bottom: 100px;
+}
+
+.prev-btn {
+    margin-left: 300px;
+}
+
+.prev-btn,
+.next-btn {
+    color: hsl(34, 93%, 67%);
+    font-size: 4.25rem;
+    background: transparent;
+    border-color: transparent;
+    /* margin: 0 0.5rem; */
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    color: hsl(34, 93%, 51%);
+}

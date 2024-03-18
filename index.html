@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Lab | 食べたい料理に出会える場所</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/validation.css">
+    <link rel="stylesheet" href="./css/usersVoice.css">
+    <link rel="stylesheet" href="./css/aboutService.css">
+    <link rel="stylesheet" href="./css/cookingTips.css">
+    <link rel="stylesheet" href="./css/faq.css">
+</head>
+
+<body>
+    <section class="validation">
+        <div class="valContainer">
+            <div class="logo">
+                <!-- imgタグでロゴ -->
+            </div>
+            <div class="text">
+                『つくれる』ではなく<br>『たべたい！』で食卓をいっぱいに
+            </div>
+        </div>
+        <form id="logIn">
+            <div class="social">
+                <div class="logInTitle">Get Started</div>
+                <div class="loginQuestion">
+                    Already Have an Account? <br>
+                    <span>Sign In</span>
+                </div>
+
+                <div class="socialBtn">
+                    <div class="socialBtn-1">
+                        <img src="https://img.icons8.com/color/30/000000/google-logo.png" alt="Google Logo">
+                        Sign Up
+                    </div>
+                    <div class="socialBtn-2">
+                        <img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="FaceBook Logo">
+                        Sign Up
+                    </div>
+                </div>
+
+                <div class="or">Or</div>
+            </div>
+
+            <!-- User Name Input -->
+            <div>
+                <label for="username">User Name</label>
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="username" placeholder="Toshi Yoroizuka">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+
+            <!-- Email Input -->
+            <div>
+                <label for="password">Password</label>
+                <i class="far fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="aaa@gmail.com">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+
+            <!-- Password Input -->
+            <div>
+                <label for="password">Password</label>
+                <i class="fas fa-lock"></i>
+                <!-- input type="password"にすると⚫︎⚫︎⚫︎になる。 -->
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+                <div class="error"></div>
+            </div>
+
+            <button type="submit" id="submit">Submit</button>
+        </form>
+    </section>
+
+    <section class="usersVoice">
+        <div class="title">
+            <h2>User's Voice</h2>
+            <div class="underline"></div>
+        </div>
+        <div id="showUser">
+            <button class="prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <article class="voice">
+                <div class="img-container">
+                    <img src="./img/person-1.png" id="person-img" alt="ユーザーの写真" width="400px">
+                </div>
+                <h4 id="userName"></h4>
+                <p id="voiceTitle"></p>
+                <p id="voiceDetail"></p>
+            </article>
+            <button class="next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+       
+            <!-- prev next buttons -->
+            <!-- <div class="button-container">
+                <button class="prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div> -->
+        
+    </section>
+
+    <section class="aboutService">
+        <div class="title">
+            <h2>What's Recipe Lab</h2>
+            <div class="underline"></div>
+            <p id="phrase">食べたい料理に出会える場所</p>
+        </div>
+
+        <div class="about-center section-center">
+            <article class="about-img">
+                <img src="./img/cooking.jpeg" alt="料理している人">
+            </article>
+            <article class="about">
+                <div class="uv-btn-container">
+                    <button class="tab-btn active" data-id="how1">How 1</button>
+                    <button class="tab-btn" data-id="how2">How 2</button>
+                    <button class="tab-btn" data-id="how3">How 3</button>
+                </div>
+                <div class="about-content">
+                    <!-- single item -->
+                    <div class="content active" id="how1">
+                        <p>
+                            <img src="./img/how1.png" alt="For You レシピのためのPDCA" width="450px">
+                        </p>
+                    </div>
+                    <!-- end of single item -->
+                    <div class="content" id="how2">
+                        <p>
+                            <img src="./img/how2.png" alt="マイレシピ作りをサポート" width="450px">
+                        </p>
+                    </div>
+                    <div class="content" id="how3">
+                        <p>
+                            <img src="./img/how3.png" alt="レシピを業者にシェアして家庭料理を外注" width="450px">
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="cookingTips">
+        <h2>Cooking Tips</h2>
+        <div class="underline"></div>
+        <div class="slider-container">
+            <div class="slide">
+                <img src="./img/slide1.png" class="slide-img" alt="">
+            </div>
+            <div class="slide">
+                <img src="./img/slide2.png" class="slide-img" alt="">
+            </div>
+            <div class="slide">
+                <img src="./img/slide3.png" class="slide-img" alt="">
+            </div>
+            <div class="slide">
+                <img src="./img/slide4.png" class="slide-img" alt="">
+            </div>
+        </div>
+        <div class="btn-container">
+            <button type="button" class="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button type="button" class="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+    </section>
+
+    <section class="news">
+
+    </section>
+
+    <section class="faq">
+        <div class="title">
+            <h2>General Questions</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="senction-center">
+            <!-- single question -->
+            <article class="question">
+                <div class="question-title">
+                    <p>Do you accept all major credit cards?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon">
+                            <i class="far fa-plus-square"></i>
+                        </span>
+                        <span class="minus-icon">
+                            <i class="far fa-minus-square"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="question-answer">
+                    <p>
+                        aaaaaaaaaaa
+                    </p>
+                </div>
+            </article>
+            <!-- end of single question -->
+            <!-- single question -->
+            <article class="question">
+                <div class="question-title">
+                    <p>Do you accept all major credit cards?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon">
+                            <i class="far fa-plus-square"></i>
+                        </span>
+                        <span class="minus-icon">
+                            <i class="far fa-minus-square"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="question-answer">
+                    <p>
+                        aaaaaaaaaaa
+                    </p>
+                </div>
+            </article>
+            <!-- end of single question -->
+            <!-- single question -->
+            <article class="question">
+                <div class="question-title">
+                    <p>Do you accept all major credit cards?</p>
+                    <button type="button" class="question-btn">
+                        <span class="plus-icon">
+                            <i class="far fa-plus-square"></i>
+                        </span>
+                        <span class="minus-icon">
+                            <i class="far fa-minus-square"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="question-answer">
+                    <p>
+                        aaaaaaaaaaa
+                    </p>
+                </div>
+            </article>
+            <!-- end of single question -->
+        </div>
+    </section>
+
+    <section class="form">
+
+    </section>
+
+    <!-- javaScript -->
+    <script src="./js/validation.js"></script>
+    <script type="module" src="./js/auth.js"></script>
+    <script src="./js/usersVoice.js"></script>
+    <script src="./js/aboutService.js"></script>
+    <script src="./js/cookingTips.js"></script>
+    <script src="./js/faq.js"></script>
+</body>
+</html>
