@@ -28,6 +28,7 @@ $("#save").on("click", function() {
     }
     const newPostRef = push(dbRef);
     set(newPostRef, fixedRecipe);
+    $("#recipeName").val("");
     $(".textedImg").val("");
 })
 
