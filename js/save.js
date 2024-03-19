@@ -32,6 +32,7 @@ $("#save").on("click", function() {
     $("#recipeName").val("");
     $(".textedImg").val("");
     $(".preview").html("");
+    $("#input").val("");
 })
 
 // firebaseに保存したレシピをマイレシピ集として画面に表示する
