@@ -7,6 +7,10 @@
     <title>Recipe Lab | 食べたい料理に出会える場所</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/myRecipeLab.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- tesseract.js v5 -->
@@ -29,7 +33,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="lab">
         <h1>マイレシピ　ラボ</h1>
         
         <!-- imgを選択し、画面に表示させる -->
@@ -42,21 +46,24 @@
         
         <!-- PDFに変換 -->
         <div>
-            <button id="convert">convert</button><br>
+            <button id="convert">編集</button><br>
             <!-- PDF変換後の結果を表示 -->
             <div class="inputRecipeName">料理名: <input type="text" id="recipeName"></div>
-            <textarea class="textedImg" cols="30" rows="10"></textarea>
+            <textarea class="textedImg" cols="60" rows="10"></textarea>
+            <button id="save">保存</button>
         </div>
-        
+    </section>
         <!-- Firebaseに保存し、保存されたレシピをどんどんマイレシピ集の一レシピとして画面に表示させていく -->
+    <section>
         <div>
-            <button id="save">save</button>
-            <h2>マイレシピ集</h2>
+            <h2>マイレシピ　コレクション</h2>
             <div class="myRecipe">
                 <ul class="item"></ul>
             </div>
         </div>
     </section>
+        
+
 
     <!-- firebase -->
     <script type="module">

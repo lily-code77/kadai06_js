@@ -1,11 +1,91 @@
-.ustate {
-    display: flex;
+body {
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: "Kaisei HarunoUmi";
+
+    background-color: antiquewhite;
 }
 
+h1, h2 {
+    font-family: "Aoboshi One";
+    font-size: 50px;
 
+    margin-top: 30px;
+}
 
+h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
+.preview {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+.lab {
+    background-color: hsl(34, 91%, 78%);
+
+    margin-top: 30px;
+}
+
+.ustate {
+    display: flex;
+
+    margin-top: 10px;
+    margin-left: 10px
+}
+
+.logout {
+    margin-left: 55%;
+}
+
+#out {
+    font-family: "Kaisei HarunoUmi";
+    font-size: 19px;
+    border-radius: 0.5rem;
+
+    padding: 10px;
+    margin: 20px;
+}
+
+input, button {
+    font-family: "Kaisei HarunoUmi";
+    font-size: 19px;
+    border-radius: 0.5rem;
+
+    padding: 10px;
+}
+
+#out, #convert, #save {
+    color: rgb(248, 90, 5);
+    border: 0.2rem solid hsl(34, 97%, 49%);
+}
+
+#convert {
+    margin-bottom: 20px;
+}
+
+#save {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+
+.inputRecipeName {
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 90px;
+}
+
+textarea {
+    border-radius: 0.5rem;
+
+    margin-left: 120px;
+}
+
+/* マイレシピ集 */
 ul.item {
     list-style: none;
     display: flex;
