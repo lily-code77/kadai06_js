@@ -1,6 +1,5 @@
 const convert = (img) => {
-    console.log("here");
-    console.log({img});
+    // console.log({img});
 
     Tesseract.recognize(
             img,

@@ -14,7 +14,7 @@ import { getDatabase, ref, push, set, onChildAdded }
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const dbRef = ref(db, "test");
+const dbRef = ref(db, "authexample");
 
 //Saveボタンのクリックイベントの作成
 let editedRecipe = "";
@@ -24,7 +24,6 @@ $("#save").on("click", function() {
 
     console.log({editedRecipe});
     const fixedRecipe = {
-        date: dateTime(),
         name: $("#recipeName").val(),
         recipe: editedRecipe
     }

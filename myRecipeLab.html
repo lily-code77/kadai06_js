@@ -84,6 +84,7 @@
 
         // Firebase-RealtimeDatabase接続
         const db = getDatabase(app); //RealtimeDBに接続
+        const dbRef = ref(db, "authexample");
 
         // Google Auth(認証用)
         const provider = new GoogleAuthProvider();
@@ -110,10 +111,49 @@
                     });
                     $("#status").fadeOut(500);
                 }
-            else {
+                //Saveボタンのクリックイベントの作成
+                let editedRecipe = "";
+
+                $("#save").on("click", function () {
+                    editedRecipe = $(".textedImg").val();
+
+                    const fixedRecipe = {
+                        name: $("#recipeName").val(),
+                        recipe: editedRecipe
+                    }
+                    console.log({ fixedRecipe });
+
+                    const newPostRef = push(dbRef);
+                    console.log({newPostRef});
+                    set(newPostRef, fixedRecipe);
+                    $("#recipeName").val("");
+                    $(".textedImg").val("");
+                    $(".preview").html("");
+                    $("#input").val("");
+                })
+
+                // firebaseに保存したレシピをマイレシピ集として画面に表示する
+                //最初のデータ取得＆onSnapshotでリアルタイムにデータを取得
+
+                onChildAdded(dbRef, function (data) {
+                    const newRecipe = data.val();
+
+                    const output =
+                        '<li class="list">' +
+                        // 画像(p141)
+                        '<h3 class="title">' +
+                        newRecipe.name +
+                        '</h3>' +
+                        '<p class="content">' +
+                        newRecipe.recipe +
+                        '</p>' +
+                        '</li>';
+
+                    $('.item').append(output);
+                })
+            } else {
                 _redirect(); // User is signed out
             }
-        }
         });
 
         // logout処理
@@ -138,7 +178,7 @@
     <script src="./js/script.js"></script>
     <script src="./js/file.js"></script>
     <script src="./js/pdf.js"></script>
-    <script type="module" src="./js/save.js"></script>
+    <!-- <script type="module" src="./js/save.js"></script> -->
 </body>
 
 </html>
