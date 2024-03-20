@@ -123,17 +123,17 @@
                     }
                     console.log({ fixedRecipe });
                     
-                    const dbRef = ref( db, "users/"+uid+"/collection/"+$("#title").val() );
-                    console.log({dbRef});
-                    set(dbRef, fixedRecipe);
+                    const dbRef = ref( db, "users/"+uid+"/collection/" );
+                    const newPostRef = push(dbRef);
+                    set(newPostRef, fixedRecipe);
+                    
 
                     //最初にデータ取得＆onSnapshotでリアルタイムにデータを取得
-                    onValue(dbRef, function(data){
+                    onChildAdded(dbRef, function(data){
                         const newRecipe = data.val();
                         console.log({newRecipe});
                         const output =
                             '<li class="list">' +
-                            // 画像(p141)
                             '<h3 class="title">' +
                             newRecipe.name +
                             '</h3>' +
@@ -153,6 +153,8 @@
                 _redirect(); // User is signed out
             }
         });
+
+        
 
         // logout処理
         $("#out").on("click", function () {
