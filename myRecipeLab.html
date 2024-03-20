@@ -84,7 +84,6 @@
 
         // Firebase-RealtimeDatabase接続
         const db = getDatabase(app); //RealtimeDBに接続
-        const dbRef = ref(db, "collection");
 
         // Google Auth(認証用)
         const provider = new GoogleAuthProvider();
@@ -98,6 +97,7 @@
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const uid = user.uid;
+
                 // ユーザー情報取得できます
                 if (user !== null) {
                     user.providerData.forEach((profile) => {
@@ -123,9 +123,14 @@
                     }
                     console.log({ fixedRecipe });
 
-                    const newPostRef = push(dbRef);
-                    console.log({newPostRef});
-                    set(newPostRef, fixedRecipe);
+                    // const newPostRef = push(dbRef);
+                    // console.log({newPostRef});
+                    // set(newPostRef, fixedRecipe);
+                    
+                    const dbRef = ref( db, "users/"+uid+"/memo/"+$("#title").val() );
+                    console.log({dbRef});
+                    set(dbRef, fixedRecipe);
+
                     $("#recipeName").val("");
                     $(".textedImg").val("");
                     $(".preview").html("");
@@ -135,22 +140,22 @@
                 // firebaseに保存したレシピをマイレシピ集として画面に表示する
                 //最初のデータ取得＆onSnapshotでリアルタイムにデータを取得
 
-                onChildAdded(dbRef, function (data) {
-                    const newRecipe = data.val();
+                // onChildAdded(dbRef, function (data) {
+                //     const newRecipe = data.val();
 
-                    const output =
-                        '<li class="list">' +
-                        // 画像(p141)
-                        '<h3 class="title">' +
-                        newRecipe.name +
-                        '</h3>' +
-                        '<p class="content">' +
-                        newRecipe.recipe +
-                        '</p>' +
-                        '</li>';
+                //     const output =
+                //         '<li class="list">' +
+                //         // 画像(p141)
+                //         '<h3 class="title">' +
+                //         newRecipe.name +
+                //         '</h3>' +
+                //         '<p class="content">' +
+                //         newRecipe.recipe +
+                //         '</p>' +
+                //         '</li>';
 
-                    $('.item').append(output);
-                })
+                //     $('.item').append(output);
+                // })
             } else {
                 _redirect(); // User is signed out
             }
