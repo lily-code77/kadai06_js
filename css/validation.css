@@ -1,6 +1,21 @@
+/* Left side */
+.text {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    line-height: 60px;
+
+    padding-top: 30px;
+}
+
+#logo {
+    border-radius: 50%;
+    margin-top: 50px;
+    margin-left: 15%;
+}
+
 /* changing default styles of brower */
-
-
 .validation {
     display: flex;
     flex-direction: row;
