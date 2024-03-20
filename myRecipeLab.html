@@ -122,40 +122,33 @@
                         recipe: editedRecipe
                     }
                     console.log({ fixedRecipe });
-
-                    // const newPostRef = push(dbRef);
-                    // console.log({newPostRef});
-                    // set(newPostRef, fixedRecipe);
                     
-                    const dbRef = ref( db, "users/"+uid+"/memo/"+$("#title").val() );
+                    const dbRef = ref( db, "users/"+uid+"/collection/"+$("#title").val() );
                     console.log({dbRef});
                     set(dbRef, fixedRecipe);
+
+                    //最初にデータ取得＆onSnapshotでリアルタイムにデータを取得
+                    onValue(dbRef, function(data){
+                        const newRecipe = data.val();
+                        console.log({newRecipe});
+                        const output =
+                            '<li class="list">' +
+                            // 画像(p141)
+                            '<h3 class="title">' +
+                            newRecipe.name +
+                            '</h3>' +
+                            '<p class="content">' +
+                            newRecipe.recipe +
+                            '</p>' +
+                            '</li>';
+                        $('.item').append(output);
+                    })
 
                     $("#recipeName").val("");
                     $(".textedImg").val("");
                     $(".preview").html("");
                     $("#input").val("");
                 })
-
-                // firebaseに保存したレシピをマイレシピ集として画面に表示する
-                //最初のデータ取得＆onSnapshotでリアルタイムにデータを取得
-
-                // onChildAdded(dbRef, function (data) {
-                //     const newRecipe = data.val();
-
-                //     const output =
-                //         '<li class="list">' +
-                //         // 画像(p141)
-                //         '<h3 class="title">' +
-                //         newRecipe.name +
-                //         '</h3>' +
-                //         '<p class="content">' +
-                //         newRecipe.recipe +
-                //         '</p>' +
-                //         '</li>';
-
-                //     $('.item').append(output);
-                // })
             } else {
                 _redirect(); // User is signed out
             }
