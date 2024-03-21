@@ -27,14 +27,24 @@
 
 #userName {
     font-size: 20px;
+
+    padding-bottom: 20px;
 }
 
 #voiceTitle {
     font-size: 40px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 50px;
 }
 
 #voiceDetail {
     font-size: 25px;
+    line-height: 50px;
+
+    padding-left: 10px;
+    padding-right: 10px;
     margin-bottom: 100px;
 }
 

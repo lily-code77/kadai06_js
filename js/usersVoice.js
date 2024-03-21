@@ -2,32 +2,25 @@
 const voices = [
     {
         id: 1,
-        userName: 'susan smith',
+        userName: '山田　花子',
         voiceTitle: 'Cooking is Fun!',
         img: '../img/person-1.png',
-        text: "I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry",
+        text: "レシピラボのおかげで、色々なところに保存していたレシピを一元管理できるようになって、本当に楽になったわ！",
     },
     {
         id: 2,
-        userName: 'anna johnson',
-        voiceTitle: 'Cooking is Fun2',
-        img: '../img/person-1.png',
-        text: 'Helvetica artisan kinfolk thundercats lumbersexual blue bottle. Disrupt glossier gastropub deep v vice franzen hell of brooklyn twee enamel pin fashion axe.photo booth jean shorts artisan narwhal.',
+        userName: '田中　太郎',
+        voiceTitle: 'オリジナル料理のリパートリーが増えた！',
+        img: '../img/person-2.png',
+        text: '試行錯誤の結果、超絶品のBBQソースの開発に成功！レシピラボで、色々な案を試せたし、試す過程も記録ができたから効率的に味の研究ができたよ！',
     },
     {
         id: 3,
-        userName: 'peter jones',
-        voiceTitle: 'Cooking is Fun3',
-        img: '../img/person-1.png',
-        text: 'Sriracha literally flexitarian irony, vape marfa unicorn. Glossier tattooed 8-bit, fixie waistcoat offal activated charcoal slow-carb marfa hell of pabst raclette post-ironic jianbing swag.',
-    },
-    {
-        id: 4,
-        userName: 'bill anderson',
-        voiceTitle: 'Cooking is Fun4',
-        img: '../img/person-1.png',
-        text: 'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
-    },
+        userName: '高橋　なな',
+        voiceTitle: '夫にも家庭料理を簡単に引き継げた',
+        img: '../img/person-3.png',
+        text: '私の出張中、夫に私のレシピを簡単に引き継げたので、アレルギー持ちの息子の食事も問題なく用意してもらえました！',
+    }
 ];
 
 // select items
