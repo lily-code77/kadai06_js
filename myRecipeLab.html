@@ -90,6 +90,7 @@
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
         const auth = getAuth();
 
+        let dbRef = {};
         // loginしていれば処理します
         onAuthStateChanged(auth, (user) => {
             console.log({user});
@@ -97,6 +98,7 @@
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 const uid = user.uid;
+                dbRef = ref(db, "users/" + uid + "/collection/");
 
                 // ユーザー情報取得できます
                 if (user !== null) {
@@ -123,31 +125,28 @@
                     }
                     console.log({ fixedRecipe });
                     
-                    const dbRef = ref( db, "users/"+uid+"/collection/" );
                     const newPostRef = push(dbRef);
                     set(newPostRef, fixedRecipe);
-                    
-
-                    //最初にデータ取得＆onSnapshotでリアルタイムにデータを取得
-                    onChildAdded(dbRef, function(data){
-                        const newRecipe = data.val();
-                        console.log({newRecipe});
-                        const output =
-                            '<li class="list">' +
-                            '<h3 class="title">' +
-                            newRecipe.name +
-                            '</h3>' +
-                            '<p class="content">' +
-                            newRecipe.recipe +
-                            '</p>' +
-                            '</li>';
-                        $('.item').append(output);
-                    })
 
                     $("#recipeName").val("");
                     $(".textedImg").val("");
                     $(".preview").html("");
                     $("#input").val("");
+                })
+
+                onChildAdded(dbRef, function (data) {
+                    const newRecipe = data.val();
+                    console.log({ newRecipe });
+                    const output =
+                        '<li class="list">' +
+                        '<h3 class="title">' +
+                        newRecipe.name +
+                        '</h3>' +
+                        '<p class="content">' +
+                        newRecipe.recipe +
+                        '</p>' +
+                        '</li>';
+                    $('.item').append(output);
                 })
             } else {
                 _redirect(); // User is signed out
