@@ -149,19 +149,14 @@
                         item.appendChild(image);
                         previewRef.appendChild(item);
                     }
-                    $("#convert").on("click", function () {
-                        convert(image.src);
-                    })
                 }
-                // ↓こっちでもOK
-                // $("#convert").on("click", function () {
-                //     convert(image.src);
-                // })
 
+                // ↓編集ボタンを押したら画像をテキスト化する
+                $("#convert").on("click", function () {
+                    convert(image.src);
+                })
 
                 inputRef.addEventListener("change", handleImageFiles);
-
-
 
                 //Saveボタンのクリックイベントの作成
                 let editedRecipe = "";
@@ -182,6 +177,7 @@
                     $(".textedImg").val("");
                     $(".preview").html("");
                     $("#input").val("");
+                    window.location.reload();
                 })
 
                 onChildAdded(dbRef, function (data) {
